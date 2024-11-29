@@ -1,3 +1,4 @@
+import json
 import random
 from graph import Graph
 from tqdm import tqdm
@@ -55,41 +56,79 @@ def get_top_nodes_by_vote(graph: Graph, num: int) -> list[str]:
     return res
 
 
-def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 0.01) -> int:
-    infected = set(infected_nodes)
-    infected_next = set(infected_nodes)
-    recovered = set()
-    progress_bar = tqdm(total=len(graph.get_nodes()), desc="SIR Simulation")
-    
-    while len(infected) > 0:
-        progress_bar.update(1)
-        for node in infected:
+def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 0.5) -> int:
+    process_bar = tqdm(desc="SIR Simulation", total=graph.get_nodes_count())
+
+    # init the set of susceptible nodes, infected nodes and recovered nodes
+    susceptible_nodes = set(graph.get_nodes())
+    infected_nodes = set(infected_nodes)
+    recovered_nodes = set()
+
+    # remove the infected nodes from the susceptible nodes
+    for node in infected_nodes:
+        susceptible_nodes.remove(node)
+
+    # simulation
+    flag = True
+    while flag:
+        flag = False
+        new_infected_nodes = set()
+        new_recovered_nodes = set()
+        for node in infected_nodes:
+            # spread the virus
             for neighbor in graph.get_neighbors(node):
-                if neighbor in recovered:
-                    continue
-                if random.random() < beta:
-                    infected_next.add(neighbor)
-        for node in infected:
-            if random.random() < gamma:
-                recovered.add(node)
-        infected = infected_next - recovered
-        infected_next = set()
-    progress_bar.close()
-    return len(recovered)
+                if neighbor in susceptible_nodes and random.uniform(0, 1) < beta:
+                    flag = True
+                    new_infected_nodes.add(neighbor)
+                    susceptible_nodes.remove(neighbor)
+
+            # recover from the virus
+            if random.uniform(0, 1) < gamma:
+                new_recovered_nodes.add(node)
+                flag = True
+
+        # update the status of nodes
+        infected_nodes.update(new_infected_nodes)
+        infected_nodes.difference_update(new_recovered_nodes)
+        recovered_nodes.update(new_recovered_nodes)
+
+        process_bar.update(len(new_infected_nodes))
+
+    process_bar.close()
+    return len(recovered_nodes) + len(infected_nodes)
 
 
 if __name__ == "__main__":
-    graph = get_graph("./12831.edges")
+    graph = get_graph("./twitter_combined.txt")
     print("Nodes count: ", graph.get_nodes_count())
     print("Edges count: ", graph.get_egde_count())
 
-    top_nodes_by_degree = get_top_nodes_by_degree(graph, 10)
-    top_nodes_by_vote = get_top_nodes_by_vote(graph, 10)
+    # Define the range of values for top_nodenum and beta
+    top_nodenum_values = [1, 3, 5, 10, 20, 30, 40]
+    beta_values = [0.001, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5]
 
-    infected_nodes_by_degree = sir_simulation(
-        graph, top_nodes_by_degree, beta=0.1)
-    infected_nodes_by_vote = sir_simulation(
-        graph, top_nodes_by_vote, beta=0.1)
+    results = []
 
-    print("by degree: ", infected_nodes_by_degree)
-    print("by vote: ", infected_nodes_by_vote)
+    for top_nodenum in tqdm(top_nodenum_values, desc="Top Node Num Loop"):
+        for beta in tqdm(beta_values, desc="Beta Loop", leave=False):
+            top_nodes_by_degree = get_top_nodes_by_degree(graph, top_nodenum)
+            top_nodes_by_vote = get_top_nodes_by_vote(graph, top_nodenum)
+
+            infected_nodes_by_degree = sir_simulation(
+                graph, top_nodes_by_degree, beta=beta)
+            infected_nodes_by_vote = sir_simulation(
+                graph, top_nodes_by_vote, beta=beta)
+
+            result = {
+                "top_nodenum": top_nodenum,
+                "beta": beta,
+                "infected_nodes_by_degree": infected_nodes_by_degree,
+                "infected_nodes_by_vote": infected_nodes_by_vote
+            }
+            results.append(result)
+
+        # Save the results to a file
+        with open("simulation_results.json", "w") as file:
+            json.dump(results, file, indent=4)
+
+    print("Results saved to simulation_results.json")

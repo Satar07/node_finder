@@ -1,0 +1,296 @@
+[
+    {
+        "top_nodenum": 1,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 409,
+        "infected_nodes_by_vote": 367
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23226,
+        "infected_nodes_by_vote": 23599
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 38384,
+        "infected_nodes_by_vote": 37754
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55490,
+        "infected_nodes_by_vote": 55732
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65882,
+        "infected_nodes_by_vote": 65970
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 73147,
+        "infected_nodes_by_vote": 73233
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 79017,
+        "infected_nodes_by_vote": 78903
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 385,
+        "infected_nodes_by_vote": 1155
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23218,
+        "infected_nodes_by_vote": 23257
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 37729,
+        "infected_nodes_by_vote": 38121
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55672,
+        "infected_nodes_by_vote": 55806
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65873,
+        "infected_nodes_by_vote": 65956
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 72981,
+        "infected_nodes_by_vote": 73182
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 79058,
+        "infected_nodes_by_vote": 78885
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 1240,
+        "infected_nodes_by_vote": 1199
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23413,
+        "infected_nodes_by_vote": 22787
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 38210,
+        "infected_nodes_by_vote": 38351
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55803,
+        "infected_nodes_by_vote": 55745
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65882,
+        "infected_nodes_by_vote": 65828
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 73294,
+        "infected_nodes_by_vote": 73155
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 78986,
+        "infected_nodes_by_vote": 78862
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 1361,
+        "infected_nodes_by_vote": 1271
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23784,
+        "infected_nodes_by_vote": 23581
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 37940,
+        "infected_nodes_by_vote": 37957
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55832,
+        "infected_nodes_by_vote": 55614
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65974,
+        "infected_nodes_by_vote": 65962
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 73387,
+        "infected_nodes_by_vote": 73149
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 79078,
+        "infected_nodes_by_vote": 79044
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 1279,
+        "infected_nodes_by_vote": 1219
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23833,
+        "infected_nodes_by_vote": 23349
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 37983,
+        "infected_nodes_by_vote": 38057
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55839,
+        "infected_nodes_by_vote": 55511
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65913,
+        "infected_nodes_by_vote": 66110
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 73218,
+        "infected_nodes_by_vote": 73307
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 78920,
+        "infected_nodes_by_vote": 79010
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 1360,
+        "infected_nodes_by_vote": 1255
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 23757,
+        "infected_nodes_by_vote": 23540
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 37808,
+        "infected_nodes_by_vote": 37654
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55418,
+        "infected_nodes_by_vote": 55875
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 65684,
+        "infected_nodes_by_vote": 65738
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 72976,
+        "infected_nodes_by_vote": 73265
+    },
+    {
+        "top_nodenum": 30,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 79062,
+        "infected_nodes_by_vote": 78978
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.001,
+        "infected_nodes_by_degree": 1342,
+        "infected_nodes_by_vote": 1421
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.01,
+        "infected_nodes_by_degree": 22881,
+        "infected_nodes_by_vote": 23447
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.02,
+        "infected_nodes_by_degree": 37776,
+        "infected_nodes_by_vote": 38235
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.05,
+        "infected_nodes_by_degree": 55853,
+        "infected_nodes_by_vote": 55778
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 66056,
+        "infected_nodes_by_vote": 65879
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.2,
+        "infected_nodes_by_degree": 73278,
+        "infected_nodes_by_vote": 72837
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 79043,
+        "infected_nodes_by_vote": 78943
+    }
+]
