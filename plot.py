@@ -1,35 +1,32 @@
 import json
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
-# Load the data from the JSON file
-with open("simulation_results.json", "r") as file:
-    data = json.load(file)
+# 读取JSON文件
+with open('simulation_results.json') as f:
+    data = json.load(f)
 
-# Extract the relevant data
-top_nodenum_values = sorted(set(item["top_nodenum"] for item in data))
-beta_values = sorted(set(item["beta"] for item in data))
+# 提取数据
+top_nodenum = []
+beta = []
+diff = []
 
-# Prepare data for plotting
-degree_results = {beta: [] for beta in beta_values}
-vote_results = {beta: [] for beta in beta_values}
+for entry in data:
+    top_nodenum.append(entry['top_nodenum'])
+    beta.append(entry['beta'])
+    diff.append(entry['infected_nodes_by_degree'] - entry['infected_nodes_by_vote'])
 
-for beta in beta_values:
-    for top_nodenum in top_nodenum_values:
-        for item in data:
-            if item["beta"] == beta and item["top_nodenum"] == top_nodenum:
-                degree_results[beta].append(item["infected_nodes_by_degree"])
-                vote_results[beta].append(item["infected_nodes_by_vote"])
+# 创建三维图
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
 
-# Plot the data
-plt.figure(figsize=(12, 8))
+# 绘制散点图
+ax.scatter(top_nodenum, beta, diff, c='r', marker='o')
 
-for beta in beta_values:
-    plt.plot(top_nodenum_values, degree_results[beta], label=f'Degree (beta={beta})', marker='o')
-    plt.plot(top_nodenum_values, vote_results[beta], label=f'Vote (beta={beta})', marker='x')
+# 设置坐标轴标签
+ax.set_xlabel('Top Node Number')
+ax.set_ylabel('Beta')
+ax.set_zlabel('Difference (Degree - Vote)')
 
-plt.xlabel('Top Node Num')
-plt.ylabel('Infected Nodes')
-plt.title('Infected Nodes by Top Node Num and Beta')
-plt.legend()
-plt.grid(True)
+# 显示图形
 plt.show()

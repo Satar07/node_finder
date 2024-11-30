@@ -52,19 +52,22 @@ def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
             top_node = max(vote_score, key=vote_score.get)
             res.append(top_node)
             vote_score.pop(top_node)
-            vote_ability[top_node] = 0
+            
             for neighbor in graph.get_neighbors(top_node):
                 max_supress = max(-vote_ability[neighbor], -k)
                 vote_ability[neighbor] += max_supress
+                vote_score[neighbor] -= vote_ability[top_node]
                 for neighbor_neighbor in graph.get_neighbors(neighbor):
                     if neighbor_neighbor in vote_score:
                         vote_score[neighbor_neighbor] += max_supress
+            
+            vote_ability[top_node] = 0
 
         vote_result = res
     return vote_result[:num]
 
 
-def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 0.5) -> int:
+def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 1) -> int:
     #process_bar = tqdm(desc="SIR Simulation", total=graph.get_nodes_count())
 
     # init the set of susceptible nodes, infected nodes and recovered nodes

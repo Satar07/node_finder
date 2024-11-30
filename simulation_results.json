@@ -1,254 +1,110 @@
 [
     {
-        "top_nodenum": 1,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 629.6,
-        "infected_nodes_by_vote": 413.4
-    },
-    {
-        "top_nodenum": 3,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 572.6,
-        "infected_nodes_by_vote": 1186.6
-    },
-    {
-        "top_nodenum": 1,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3147.2,
-        "infected_nodes_by_vote": 2608.6
-    },
-    {
-        "top_nodenum": 3,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3242.8,
-        "infected_nodes_by_vote": 3731.6
-    },
-    {
         "top_nodenum": 5,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 1173.2,
-        "infected_nodes_by_vote": 1289.4
-    },
-    {
-        "top_nodenum": 1,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11589.4,
-        "infected_nodes_by_vote": 11847.2
-    },
-    {
-        "top_nodenum": 1,
         "beta": 0.1,
-        "infected_nodes_by_degree": 65948.2,
-        "infected_nodes_by_vote": 66010.0
-    },
-    {
-        "top_nodenum": 3,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11621.4,
-        "infected_nodes_by_vote": 11738.6
+        "infected_nodes_by_degree": 56794.0,
+        "infected_nodes_by_vote": 56768.0
     },
     {
         "top_nodenum": 1,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55751.4,
-        "infected_nodes_by_vote": 55686.0
-    },
-    {
-        "top_nodenum": 1,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23375.8,
-        "infected_nodes_by_vote": 23326.8
-    },
-    {
-        "top_nodenum": 1,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 37886.6,
-        "infected_nodes_by_vote": 38158.0
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79302.4,
+        "infected_nodes_by_vote": 79315.6
     },
     {
         "top_nodenum": 3,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23464.0,
-        "infected_nodes_by_vote": 23288.0
-    },
-    {
-        "top_nodenum": 3,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 37968.0,
-        "infected_nodes_by_vote": 37933.0
-    },
-    {
-        "top_nodenum": 3,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55675.4,
-        "infected_nodes_by_vote": 55499.0
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79328.6,
+        "infected_nodes_by_vote": 79311.0
     },
     {
         "top_nodenum": 3,
         "beta": 0.1,
-        "infected_nodes_by_degree": 65927.0,
-        "infected_nodes_by_vote": 65974.6
-    },
-    {
-        "top_nodenum": 5,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3683.4,
-        "infected_nodes_by_vote": 3813.4
+        "infected_nodes_by_degree": 56805.4,
+        "infected_nodes_by_vote": 56803.2
     },
     {
         "top_nodenum": 10,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 1258.6,
-        "infected_nodes_by_vote": 1286.6
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3848.2,
-        "infected_nodes_by_vote": 3808.2
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76969.4,
+        "infected_nodes_by_vote": 76997.0
     },
     {
         "top_nodenum": 5,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11903.8,
-        "infected_nodes_by_vote": 11930.0
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76934.0,
+        "infected_nodes_by_vote": 76964.6
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79336.0,
+        "infected_nodes_by_vote": 79334.0
+    },
+    {
+        "top_nodenum": 3,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76970.0,
+        "infected_nodes_by_vote": 76945.2
     },
     {
         "top_nodenum": 20,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 1314.2,
-        "infected_nodes_by_vote": 1127.6
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79319.0,
+        "infected_nodes_by_vote": 79316.4
     },
     {
-        "top_nodenum": 5,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55529.4,
-        "infected_nodes_by_vote": 55662.0
+        "top_nodenum": 20,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76917.0,
+        "infected_nodes_by_vote": 77001.6
     },
     {
-        "top_nodenum": 5,
+        "top_nodenum": 1,
         "beta": 0.1,
-        "infected_nodes_by_degree": 65903.6,
-        "infected_nodes_by_vote": 65896.4
-    },
-    {
-        "top_nodenum": 5,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23475.4,
-        "infected_nodes_by_vote": 23400.2
-    },
-    {
-        "top_nodenum": 5,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 38172.6,
-        "infected_nodes_by_vote": 37814.2
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11915.2,
-        "infected_nodes_by_vote": 11668.0
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.1,
-        "infected_nodes_by_degree": 65960.0,
-        "infected_nodes_by_vote": 66010.6
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23421.6,
-        "infected_nodes_by_vote": 23333.0
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 37755.6,
-        "infected_nodes_by_vote": 37806.4
-    },
-    {
-        "top_nodenum": 10,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55647.0,
-        "infected_nodes_by_vote": 55570.0
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.001,
-        "infected_nodes_by_degree": 1283.8,
-        "infected_nodes_by_vote": 1344.6
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3747.2,
-        "infected_nodes_by_vote": 3808.0
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11838.2,
-        "infected_nodes_by_vote": 11937.4
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.002,
-        "infected_nodes_by_degree": 3664.0,
-        "infected_nodes_by_vote": 3744.4
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23428.4,
-        "infected_nodes_by_vote": 23531.6
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.1,
-        "infected_nodes_by_degree": 65992.0,
-        "infected_nodes_by_vote": 65902.0
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55747.0,
-        "infected_nodes_by_vote": 55626.8
-    },
-    {
-        "top_nodenum": 20,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 38144.2,
-        "infected_nodes_by_vote": 37912.4
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.005,
-        "infected_nodes_by_degree": 11906.0,
-        "infected_nodes_by_vote": 11867.6
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.05,
-        "infected_nodes_by_degree": 55659.8,
-        "infected_nodes_by_vote": 55874.2
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.01,
-        "infected_nodes_by_degree": 23290.0,
-        "infected_nodes_by_vote": 23216.6
-    },
-    {
-        "top_nodenum": 40,
-        "beta": 0.02,
-        "infected_nodes_by_degree": 37974.2,
-        "infected_nodes_by_vote": 37934.2
+        "infected_nodes_by_degree": 56878.4,
+        "infected_nodes_by_vote": 56714.8
     },
     {
         "top_nodenum": 40,
         "beta": 0.1,
-        "infected_nodes_by_degree": 65871.0,
-        "infected_nodes_by_vote": 66046.2
+        "infected_nodes_by_degree": 56918.0,
+        "infected_nodes_by_vote": 56860.6
+    },
+    {
+        "top_nodenum": 20,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 56852.8,
+        "infected_nodes_by_vote": 56906.2
+    },
+    {
+        "top_nodenum": 1,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76963.8,
+        "infected_nodes_by_vote": 76927.2
+    },
+    {
+        "top_nodenum": 5,
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79294.0,
+        "infected_nodes_by_vote": 79327.2
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.5,
+        "infected_nodes_by_degree": 76940.4,
+        "infected_nodes_by_vote": 76964.2
+    },
+    {
+        "top_nodenum": 10,
+        "beta": 0.1,
+        "infected_nodes_by_degree": 56802.0,
+        "infected_nodes_by_vote": 56862.4
+    },
+    {
+        "top_nodenum": 40,
+        "beta": 0.7,
+        "infected_nodes_by_degree": 79349.0,
+        "infected_nodes_by_vote": 79315.2
     }
 ]
