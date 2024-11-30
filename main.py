@@ -53,15 +53,19 @@ def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
             res.append(top_node)
             vote_score.pop(top_node)
             
+            # update neighbors' vote score
+            for neighbor in graph.get_neighbors(top_node):
+                if neighbor in vote_score:
+                    vote_score[neighbor] -= vote_ability[top_node]
+            vote_ability[top_node] = 0
             for neighbor in graph.get_neighbors(top_node):
                 max_supress = max(-vote_ability[neighbor], -k)
                 vote_ability[neighbor] += max_supress
-                vote_score[neighbor] -= vote_ability[top_node]
                 for neighbor_neighbor in graph.get_neighbors(neighbor):
                     if neighbor_neighbor in vote_score:
                         vote_score[neighbor_neighbor] += max_supress
             
-            vote_ability[top_node] = 0
+            
 
         vote_result = res
     return vote_result[:num]
@@ -113,11 +117,16 @@ def run_simulation(graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_node
     sum_infe = 0
     sum_vote = 0
 
-    for _ in range(5):
-        sum_infe += sir_simulation(graph, top_nodes_by_degree, beta=beta)
-        sum_vote += sir_simulation(graph, top_nodes_by_vote, beta=beta)
+    infe_results = []
+    vote_results = []
+    for _ in range(8):
+        infe_results.append(sir_simulation(graph, top_nodes_by_degree, beta=beta))
+        vote_results.append(sir_simulation(graph, top_nodes_by_vote, beta=beta))
 
-    return top_nodenum, beta, (sum_infe / 5, sum_vote / 5)
+    median_infe = sorted(infe_results)[len(infe_results) // 2]
+    median_vote = sorted(vote_results)[len(vote_results) // 2]
+
+    return top_nodenum, beta, (median_infe, median_vote)
 
 
 if __name__ == "__main__":
@@ -126,7 +135,7 @@ if __name__ == "__main__":
     print("Edges count: ", graph.get_egde_count())
 
     # Define the range of values for top_nodenum and beta
-    top_nodenum_values = [1, 3, 5, 10, 20, 40]
+    top_nodenum_values = [1, 3, 5, 10, 20]
     beta_values = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]
 
     results = []
