@@ -65,7 +65,7 @@ def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
 
 
 def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 0.5) -> int:
-    process_bar = tqdm(desc="SIR Simulation", total=graph.get_nodes_count())
+    #process_bar = tqdm(desc="SIR Simulation", total=graph.get_nodes_count())
 
     # init the set of susceptible nodes, infected nodes and recovered nodes
     susceptible_nodes = set(graph.get_nodes())
@@ -100,13 +100,13 @@ def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: 
         infected_nodes.difference_update(new_recovered_nodes)
         recovered_nodes.update(new_recovered_nodes)
 
-        process_bar.update(len(new_infected_nodes))
+        #process_bar.update(len(new_infected_nodes))
 
-    process_bar.close()
+    #process_bar.close()
     return len(recovered_nodes) + len(infected_nodes)
 
 
-def run_simulation(graph, top_nodes_by_degree, top_nodes_by_vote, beta):
+def run_simulation(graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_nodenum):
     sum_infe = 0
     sum_vote = 0
 
@@ -114,7 +114,7 @@ def run_simulation(graph, top_nodes_by_degree, top_nodes_by_vote, beta):
         sum_infe += sir_simulation(graph, top_nodes_by_degree, beta=beta)
         sum_vote += sir_simulation(graph, top_nodes_by_vote, beta=beta)
 
-    return sum_infe / 5, sum_vote / 5
+    return top_nodenum, beta, (sum_infe / 5, sum_vote / 5)
 
 
 if __name__ == "__main__":
@@ -135,7 +135,7 @@ if __name__ == "__main__":
             for beta in tqdm(beta_values, desc="Beta Loop", leave=False):
                 top_nodes_by_degree = get_top_nodes_by_degree(graph, top_nodenum)
                 top_nodes_by_vote = get_top_nodes_by_vote(graph, top_nodenum)
-                futures.append(executor.submit(run_simulation, graph, top_nodes_by_degree, top_nodes_by_vote, beta))
+                futures.append(executor.submit(run_simulation, graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_nodenum))
 
         for future in tqdm(as_completed(futures), total=len(futures), desc="Simulation Progress"):
             top_nodenum, beta, (infected_nodes_by_degree, infected_nodes_by_vote) = future.result()
