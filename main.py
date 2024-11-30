@@ -23,7 +23,7 @@ def get_top_nodes_by_degree(graph: Graph, num: int) -> list[str]:
 vote_result = []
 
 
-def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
+def get_top_nodes_by_vote(graph: Graph, num: int = 20) -> list[str]:
     global vote_result
     if len(vote_result) < num:
         vote_result.clear()
@@ -52,7 +52,7 @@ def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
             top_node = max(vote_score, key=vote_score.get)
             res.append(top_node)
             vote_score.pop(top_node)
-            
+
             # update neighbors' vote score
             for neighbor in graph.get_neighbors(top_node):
                 if neighbor in vote_score:
@@ -64,16 +64,12 @@ def get_top_nodes_by_vote(graph: Graph, num: int = 100) -> list[str]:
                 for neighbor_neighbor in graph.get_neighbors(neighbor):
                     if neighbor_neighbor in vote_score:
                         vote_score[neighbor_neighbor] += max_supress
-            
-            
 
         vote_result = res
     return vote_result[:num]
 
 
 def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: float = 1) -> int:
-    #process_bar = tqdm(desc="SIR Simulation", total=graph.get_nodes_count())
-
     # init the set of susceptible nodes, infected nodes and recovered nodes
     susceptible_nodes = set(graph.get_nodes())
     infected_nodes = set(infected_nodes)
@@ -107,9 +103,6 @@ def sir_simulation(graph: Graph, infected_nodes: list[str], beta: float, gamma: 
         infected_nodes.difference_update(new_recovered_nodes)
         recovered_nodes.update(new_recovered_nodes)
 
-        #process_bar.update(len(new_infected_nodes))
-
-    #process_bar.close()
     return len(recovered_nodes) + len(infected_nodes)
 
 
@@ -119,9 +112,11 @@ def run_simulation(graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_node
 
     infe_results = []
     vote_results = []
-    for _ in range(8):
-        infe_results.append(sir_simulation(graph, top_nodes_by_degree, beta=beta))
-        vote_results.append(sir_simulation(graph, top_nodes_by_vote, beta=beta))
+    for _ in range(9):
+        infe_results.append(sir_simulation(
+            graph, top_nodes_by_degree, beta=beta))
+        vote_results.append(sir_simulation(
+            graph, top_nodes_by_vote, beta=beta))
 
     median_infe = sorted(infe_results)[len(infe_results) // 2]
     median_vote = sorted(vote_results)[len(vote_results) // 2]
@@ -136,7 +131,8 @@ if __name__ == "__main__":
 
     # Define the range of values for top_nodenum and beta
     top_nodenum_values = [1, 3, 5, 10, 20]
-    beta_values = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1]
+    beta_values = [0.001, 0.002, 0.005, 0.01,
+                   0.02, 0.03, 0.02, 0.05, 0.08, 0.1]
 
     results = []
     get_top_nodes_by_vote(graph)
@@ -145,12 +141,15 @@ if __name__ == "__main__":
         futures = []
         for top_nodenum in tqdm(top_nodenum_values, desc="Top Node Num Loop"):
             for beta in tqdm(beta_values, desc="Beta Loop", leave=False):
-                top_nodes_by_degree = get_top_nodes_by_degree(graph, top_nodenum)
+                top_nodes_by_degree = get_top_nodes_by_degree(
+                    graph, top_nodenum)
                 top_nodes_by_vote = get_top_nodes_by_vote(graph, top_nodenum)
-                futures.append(executor.submit(run_simulation, graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_nodenum))
+                futures.append(executor.submit(
+                    run_simulation, graph, top_nodes_by_degree, top_nodes_by_vote, beta, top_nodenum))
 
         for future in tqdm(as_completed(futures), total=len(futures), desc="Simulation Progress"):
-            top_nodenum, beta, (infected_nodes_by_degree, infected_nodes_by_vote) = future.result()
+            top_nodenum, beta, (infected_nodes_by_degree,
+                                infected_nodes_by_vote) = future.result()
             result = {
                 "top_nodenum": top_nodenum,
                 "beta": beta,
